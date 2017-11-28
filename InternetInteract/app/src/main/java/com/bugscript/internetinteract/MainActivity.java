@@ -44,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
     private void cookingQuery(){
         userName=getQueryString.getText().toString().toLowerCase().trim();
 
@@ -62,15 +59,13 @@ public class MainActivity extends AppCompatActivity {
 
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
 
-        // COMPLETED (2) Override the doInBackground method to perform the query. Return the results. (Hint: You've already written the code to perform the query)
+
         @Override
         protected String doInBackground(URL... params) {
             URL searchUrl = params[0];
             String temp="";
 
             appendingGithubFollowers=new ArrayList<>();
-
-//            String singleParsed="";
             String doubleParsed="";
             int j=1;
             try {
@@ -84,13 +79,6 @@ public class MainActivity extends AppCompatActivity {
                         appendingGithubFollowers.add(new Github((String) JO.get("login"),j+""));
                         j+=1;
 
-
-
-
-//                        singleParsed = "#"+j+" => "+JO.get("login")+"\n";
-//                        j+=1;
-//
-//                        doubleParsed=doubleParsed+singleParsed;
                     }
 
 
@@ -105,31 +93,16 @@ public class MainActivity extends AppCompatActivity {
             return doubleParsed;
         }
 
-        // COMPLETED (3) Override onPostExecute to display the results in the TextView
         @Override
         protected void onPostExecute(String githubSearchResults) {
-//            if (githubSearchResults != null && !githubSearchResults.equals("")) {
-//                displayGithubFollowers.setText(githubSearchResults);
-//                displayGithubFollowers.setVisibility(View.VISIBLE);
-//            finalEditInTextView.setText("Followers of "+userName+":");
-
 
             GithubAdapter adapter = new GithubAdapter(MainActivity.this,appendingGithubFollowers);
             finalList.setAdapter(adapter);
 
             finalList.setVisibility(View.VISIBLE);
 
-
-//            }
         }
     }
-
-
-
-
-
-
-
 
 
 
