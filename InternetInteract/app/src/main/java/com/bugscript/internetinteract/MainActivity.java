@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,22 +20,26 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText getQueryString;
-    private TextView displayGithubFollowers;
     private TextView finalEditInTextView;
     private String userName;
     private URL completeURL;
+    private ListView finalList;
+
+
+    private ArrayList<Github> appendingGithubFollowers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getQueryString=(EditText) findViewById(R.id.editText);
-        displayGithubFollowers=(TextView) findViewById(R.id.textView3);
         finalEditInTextView=(TextView) findViewById(R.id.textView2);
+        finalList =(ListView) findViewById(R.id.listview);
     }
 
 
@@ -62,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(URL... params) {
             URL searchUrl = params[0];
             String temp="";
-            String singleParsed="";
+
+            appendingGithubFollowers=new ArrayList<>();
+
+//            String singleParsed="";
             String doubleParsed="";
             int j=1;
             try {
@@ -72,10 +80,17 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray JA = new JSONArray(temp);
                     for(int i=0;i<JA.length();i++){
                         JSONObject JO= (JSONObject) JA.get(i);
-                        singleParsed = "#"+j+" => "+JO.get("login")+"\n";
+
+                        appendingGithubFollowers.add(new Github((String) JO.get("login"),j+""));
                         j+=1;
 
-                        doubleParsed=doubleParsed+singleParsed;
+
+
+
+//                        singleParsed = "#"+j+" => "+JO.get("login")+"\n";
+//                        j+=1;
+//
+//                        doubleParsed=doubleParsed+singleParsed;
                     }
 
 
@@ -93,11 +108,19 @@ public class MainActivity extends AppCompatActivity {
         // COMPLETED (3) Override onPostExecute to display the results in the TextView
         @Override
         protected void onPostExecute(String githubSearchResults) {
-            if (githubSearchResults != null && !githubSearchResults.equals("")) {
-                displayGithubFollowers.setText(githubSearchResults);
-                finalEditInTextView.setText("Followers of "+userName+":");
-                displayGithubFollowers.setVisibility(View.VISIBLE);
-            }
+//            if (githubSearchResults != null && !githubSearchResults.equals("")) {
+//                displayGithubFollowers.setText(githubSearchResults);
+//                displayGithubFollowers.setVisibility(View.VISIBLE);
+//            finalEditInTextView.setText("Followers of "+userName+":");
+
+
+            GithubAdapter adapter = new GithubAdapter(MainActivity.this,appendingGithubFollowers);
+            finalList.setAdapter(adapter);
+
+            finalList.setVisibility(View.VISIBLE);
+
+
+//            }
         }
     }
 
