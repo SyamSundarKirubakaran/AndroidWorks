@@ -1,32 +1,16 @@
-package com.bugscript.internetinteract.utilities;
+package com.bugscript.moviedb.utilities;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
 /**
- * Created by syamsundark on 24/11/17.
+ * Created by syamsundark on 01/12/17.
  */
 
 public class NetworkUtils {
-
-    final static String GITHUB_BASE_URL =
-            "https://api.github.com/users/";
-
-    final static String FOLLOWERS_KEYWORD = "/followers";
-
-    public static URL cookingTheUrl(String gotFromMainActivity){
-        URL url=null;
-        try {
-            url= new URL(GITHUB_BASE_URL+gotFromMainActivity+FOLLOWERS_KEYWORD);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return url;
-    }
 
 
     public static String getResponseFromHttpUrl(URL url) throws IOException {
@@ -47,4 +31,6 @@ public class NetworkUtils {
             urlConnection.disconnect();
         }
     }
+
+
 }

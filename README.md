@@ -4,10 +4,10 @@
 Repository that showcases Android Best Practices with Intermediate Project Creation skills
 
 ## Contents
-**#1 Internet Interact:**
+**#1 Internet Interact:**<br />
 **#2 Picasso Pick:**
 
-## Internet Interact:
+## 1.Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
 
 **You'll Learn:**
@@ -21,10 +21,12 @@ An app used to find the followers in Github by supplying his/her accounts user n
 `https://api.github.com/users/ <<User name>> /followers` <br />
 <br />
 **Show case:**
+<br />
+<p align="center">
+  <img src="asserts/gifs/internet_interact.gif">
+</p>
 
-![working.gif](asserts/gifs/internet_interact.gif)
-
-## Picasso Pick:
+## 2.Picasso Pick:
 A simple app that download the image from the given URL and displays it in an image view using **Picasso** library to fetch the image<br />
 
 **You'll Learn:**
@@ -38,5 +40,7 @@ A simple app that download the image from the given URL and displays it in an im
 Replace the above URL with our own.<br />
 <br />
 **Show case:**
-
-![showimage.gif](asserts/gifs/picasso_pick.gif)
+<br />
+<p align="center">
+  <img src="asserts/gifs/picasso_pick.gif">
+</p>

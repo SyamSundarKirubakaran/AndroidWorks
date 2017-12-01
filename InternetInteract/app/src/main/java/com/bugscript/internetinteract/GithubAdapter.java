@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,8 @@ import java.util.List;
  */
 
 public class GithubAdapter extends ArrayAdapter<Github> {
+
+    Toast toast;
 
     public GithubAdapter(@NonNull Context context, @NonNull List<Github> objects) {
         super(context, 0, objects);
@@ -30,7 +33,7 @@ public class GithubAdapter extends ArrayAdapter<Github> {
 
         }
 
-        Github currentfollower = getItem(position);
+        final Github currentfollower = getItem(position);
 
         TextView followerViewName =(TextView) listitemView.findViewById(R.id.name);
         followerViewName.setText(currentfollower.getName());
@@ -38,9 +41,20 @@ public class GithubAdapter extends ArrayAdapter<Github> {
         TextView followerNumberView = (TextView) listitemView.findViewById(R.id.number);
         followerNumberView.setText("#"+currentfollower.getNumber());
 
+        listitemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(toast!=null){
+                    toast.cancel();
+                }
+                toast.makeText(getContext(),"Hi, "+currentfollower.getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return listitemView;
     }
+
+
 
 
 }
