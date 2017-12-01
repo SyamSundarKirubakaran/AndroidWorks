@@ -1,5 +1,6 @@
 package com.bugscript.moviedb;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,10 +24,13 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Toast to;
     private ListView lv;
-    private String[] movies;
-    private String[] votes;
-    private final String MOVIE_URL="https://api.themoviedb.org/3/movie/popular?api_key=";
+    public static String[] movies;
+    public static String[] dates;
+    public static String[] summary;
+    public static String[] votes;
+    private final String MOVIE_URL="https://api.themoviedb.org/3/movie/popular?api_key="+getString(R.string.API_Key);
     private URL url;
     private ProgressBar progressBar;
 
@@ -58,10 +62,14 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray JA= JO.getJSONArray("results");
                     movies=new String[JA.length()];
                     votes=new String[JA.length()];
+                    dates=new String[JA.length()];
+                    summary=new String[JA.length()];
                     for(int i=0;i<=JA.length();i++){
                         JSONObject Jinside=JA.getJSONObject(i);
                         movies[i]=Jinside.getString("title");
                         votes[i]=Jinside.getString("vote_average");
+                        dates[i]=Jinside.getString("release_date");
+                        summary[i]=Jinside.getString("overview");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -83,6 +91,20 @@ public class MainActivity extends AppCompatActivity {
                     R.layout.simplerow, R.id.rowTextView, movies);
             lv.setAdapter(adapter);
             lv.setVisibility(View.VISIBLE);
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
+                    int itemPosition= position;
+                    String  itemValue= (String) lv.getItemAtPosition(position);
+                    if(to!=null){
+                        to.cancel();
+                    }
+                    Intent i=new Intent(MainActivity.this,DetailedActivity.class);
+                    i.putExtra("position",itemPosition+"");
+                    startActivity(i);
+                }
+            });
             progressBar.setVisibility(View.INVISIBLE);
         }
     }

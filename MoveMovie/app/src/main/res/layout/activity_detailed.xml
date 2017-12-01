@@ -30,7 +30,7 @@
         android:layout_toEndOf="@+id/movieTitleLabel"
         android:text="Movie Name"
         android:textColor="@color/colorPrimary"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/movieReleaseDatelabel"
@@ -51,7 +51,7 @@
         android:layout_alignStart="@+id/movieTitleValue"
         android:text="Movie Release Date"
         android:textColor="@color/colorPrimary"
-        android:textSize="16sp"/>
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/movieVoteLabel"
@@ -74,7 +74,7 @@
         android:layout_marginStart="11dp"
         android:text="7.5"
         android:textColor="@color/green"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/movieSummaryLabel"
@@ -96,7 +96,8 @@
         android:layout_marginTop="11dp"
         android:text="Movie Review"
         android:textColor="@color/colorPrimary"
-        android:textSize="16sp" />
+        android:textSize="18sp"
+        android:layout_marginRight="8dp"/>
 
 
 </RelativeLayout>

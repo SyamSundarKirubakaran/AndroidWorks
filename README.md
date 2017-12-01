@@ -5,10 +5,10 @@ Repository that showcases Android Best Practices with Intermediate Project Creat
 
 ## Contents
 **#1 Internet Interact**<br /><br />
-**#2 Picasso Pick**<br /><br />
+**#2 Pick Picasso**<br /><br />
 **#3 Move Movies**
 
-## 1.Internet Interact:
+## 1. Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
 
 **You'll Learn:**
@@ -27,7 +27,7 @@ An app used to find the followers in Github by supplying his/her accounts user n
   <img src="asserts/gifs/internet_interact.gif">
 </p>
 
-## 2.Picasso Pick:
+## 2. Pick Picasso:
 A simple app that download the image from the given URL and displays it in an image view using **Picasso** library to fetch the image<br />
 
 **You'll Learn:**
@@ -46,7 +46,7 @@ Replace the above URL with our own.<br />
   <img src="asserts/gifs/picasso_pick.gif">
 </p>
 
-## 3.Move Movies:
+## 3. Move Movies:
 An app that uses the [Movies.db API](https://www.themoviedb.org/?language=en) to find the popular movies and inflate the activities with the data of those movies accordingly. <br />
 
 **You'll Learn:**
@@ -60,6 +60,14 @@ An app that uses the [Movies.db API](https://www.themoviedb.org/?language=en) to
 <br />
 `https://api.themoviedb.org/3/movie/popular?api_key= <<YOUR_API_KEY>> ` <br />
 <br />
+**Note:**<br />
+Get your API key and place it in the strings.xml file in the resource directory.<br />
+``` xml
+<string name="API_Key">Your API Key</string>
+```
+<br />
 **Show case:**
 <br />
-Work on progress..
+<p align="center">
+  <img src="asserts/gifs/move_movie.gif">
+</p>
