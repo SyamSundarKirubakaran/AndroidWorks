@@ -4,8 +4,9 @@
 Repository that showcases Android Best Practices with Intermediate Project Creation skills
 
 ## Contents
-**#1 Internet Interact:**<br />
-**#2 Picasso Pick:**
+**#1 Internet Interact:**<br /><br />
+**#2 Picasso Pick:**<br /><br />
+**#3 Move Movies**
 
 ## 1.Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
@@ -44,3 +45,21 @@ Replace the above URL with our own.<br />
 <p align="center">
   <img src="asserts/gifs/picasso_pick.gif">
 </p>
+
+## 3.Move Movies:
+An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
+
+**You'll Learn:**
+* Working with [Movies API](https://www.themoviedb.org/?language=en)
+* [Networking in Android](https://developer.android.com/training/basics/network-ops/connecting.html)
+* JSON parsing
+* Simple List view
+* Array List and Adapters<br />
+
+**Popular movies in the form of JSON:** <br />
+<br />
+`https://api.themoviedb.org/3/movie/popular?api_key= <<YOUR_API_KEY>> ` <br />
+<br />
+**Show case:**
+<br />
+Work on progress..
