@@ -9,7 +9,7 @@ Repository that showcases Android Best Practices with Intermediate Project Creat
 **#2 [Pick Picasso](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/pickpicasso)**<br /><br />
 **#3 [Move Movies](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/MoveMovie)**
 <br /><br />
-**#4 [Movie Feast](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid)** Nano Degree Submission - Popular Movies Stage I
+**#4 [Movie Feast](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid)** -Nano Degree Submission - Popular Movies Stage I (sub-repo name: [PosterGrid](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid))
 
 ## 1. Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
