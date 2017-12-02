@@ -4,9 +4,12 @@
 Repository that showcases Android Best Practices with Intermediate Project Creation skills
 
 ## Contents
-**#1 Internet Interact**<br /><br />
-**#2 Pick Picasso**<br /><br />
-**#3 Move Movies**
+**#1 [Internet Interact](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/InternetInteract)**
+<br /><br />
+**#2 [Pick Picasso](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/pickpicasso)**<br /><br />
+**#3 [Move Movies](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/MoveMovie)**
+<br /><br />
+**#4 [Movie Feast](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid)** Nano Degree Submission - Popular Movies Stage I
 
 ## 1. Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
@@ -68,4 +71,31 @@ Get your API key and place it in the strings.xml file in the resource directory.
 **Show case:**<br />
 <p align="center">
   <img src="asserts/gifs/movie.gif">
+</p>
+
+## 4. Movie Feast:
+An app that uses the [Movies.db API](https://www.themoviedb.org/?language=en) to find the popular movies and Top rated movies in realtime and inflate the activities with the data of those movies accordingly. <br />
+
+**You'll Learn:**
+* Working with [Movies API](https://www.themoviedb.org/?language=en)
+* [Networking in Android](https://developer.android.com/training/basics/network-ops/connecting.html)
+* JSON parsing
+* Scrolling view
+* Picasso
+* Bottom Tabbed Activity<br />
+
+**Popular movies in the form of JSON:** <br />
+<br />
+`https://api.themoviedb.org/3/movie/popular?api_key= <<YOUR_API_KEY>> ` <br />
+<br />
+`https://api.themoviedb.org/3/movie/top_rated?api_key= <<YOUR_API_KEY>> ` <br />
+<br />
+**Note:**<br />
+Get your API key and place it in the strings.xml file in the resource directory.(NOTE: Marked as TODO in strings.xml file)<br />
+``` xml
+<string name="API_Key">Your API Key</string>
+```
+**Show case:**<br />
+<p align="center">
+  <img src="asserts/gifs/movie_feast.gif">
 </p>
