@@ -67,5 +67,5 @@ Get your API key and place it in the strings.xml file in the resource directory.
 ```
 **Show case:**<br />
 <p align="center">
-  <img src="asserts/gifs/move_movie.gif">
+  <img src="asserts/gifs/movie.gif">
 </p>
