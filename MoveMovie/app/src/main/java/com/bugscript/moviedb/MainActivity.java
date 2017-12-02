@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     public static String[] dates;
     public static String[] summary;
     public static String[] votes;
-    private final String MOVIE_URL="https://api.themoviedb.org/3/movie/popular?api_key="+getString(R.string.API_Key);
+    public static String[] poster;
+    private final String MOVIE_URL="https://api.themoviedb.org/3/movie/popular?api_key=47ea50d7ece7e74f25725d5937da4586";
     private URL url;
     private ProgressBar progressBar;
 
@@ -64,12 +66,14 @@ public class MainActivity extends AppCompatActivity {
                     votes=new String[JA.length()];
                     dates=new String[JA.length()];
                     summary=new String[JA.length()];
+                    poster=new String[JA.length()];
                     for(int i=0;i<=JA.length();i++){
                         JSONObject Jinside=JA.getJSONObject(i);
                         movies[i]=Jinside.getString("title");
                         votes[i]=Jinside.getString("vote_average");
                         dates[i]=Jinside.getString("release_date");
                         summary[i]=Jinside.getString("overview");
+                        poster[i]=Jinside.getString("poster_path");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
