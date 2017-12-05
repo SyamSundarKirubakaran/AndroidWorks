@@ -11,6 +11,8 @@ Repository that showcases Android Best Practices with Intermediate Project Creat
 <br /><br />
 **#4 [Movie Feast](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid)** 
 - Nano Degree Submission - Popular Movies Stage I (sub-repo name: [PosterGrid](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid))
+<br /><br />
+**#5 [SQLite Light](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/SQLiteLight)**
 
 ## 1. Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
@@ -100,3 +102,20 @@ Get your API key and place it in the strings.xml file in the resource directory.
 <p align="center">
   <img src="asserts/gifs/movie_feast.gif">
 </p>
+
+## 5. SQLite Light:
+An app that uses the [SQLite](https://www.sqlite.org/) database to store data premanently and retrieve it when ever necessary.<br />
+
+**You'll Learn:**
+* Working with [SQLite Databases](https://www.sqlite.org/)
+* [SQL Query](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html)
+* Data Presistence
+* List View Updation after specific operation on the Database<br />
+
+**Base Understanding for:** <br />
+* Content Providers
+* Working with URIs to query out from Database
+
+<br />
+**Note:**<br />
+Mainly focuses on Data Presistence.
