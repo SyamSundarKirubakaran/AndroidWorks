@@ -10,7 +10,7 @@ Repository that showcases Android Best Practices with Intermediate Project Creat
 **#3 [Move Movies](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/MoveMovie)**
 <br /><br />
 **#4 [Movie Feast](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid)** 
-- Nano Degree Submission - Popular Movies Stage I (sub-repo name: [PosterGrid](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid))
+-Nano Degree Submission - Popular Movies Stage I (sub-repo name: [PosterGrid](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid))
 <br /><br />
 **#5 [SQLite Light](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/SQLiteLight)**
 
@@ -116,6 +116,10 @@ An app that uses the [SQLite](https://www.sqlite.org/) database to store data pr
 * Content Providers
 * Working with URIs to query out from Database
 
-<br />
 **Note:**<br />
 Mainly focuses on Data Presistence.
+
+**Show case:**<br />
+<p align="center">
+  <img src="asserts/gifs/sqlite_light.gif">
+</p>

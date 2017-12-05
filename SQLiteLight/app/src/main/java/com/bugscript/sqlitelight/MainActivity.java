@@ -19,7 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private SQLiteDatabase mDb;
-
+    Toast to;
     String[] mobileArray;
     String name;
     EditText insertData,deleteDatas;
@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         insertData=findViewById(R.id.insertData);
         deleteDatas=findViewById(R.id.deleteData);
         insertChecked=findViewById(R.id.insertChecked);
@@ -71,22 +70,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void deleteFromTable(){
-//        String nameForDeletion=deleteDatas.getText().toString().trim().toLowerCase();
-//        try {
-////            Toast.makeText(MainActivity.this,name,Toast.LENGTH_SHORT).show();
-//            boolean b = mDb.delete(ContractClass.nameClass.TABLENAME, ContractClass.nameClass.COLUMN_PERSON_NAME + "=" + nameForDeletion, null) > 0;
-//            Toast.makeText(MainActivity.this, "Deleted successfully..", Toast.LENGTH_SHORT).show();
-//            deleteDatas.clearFocus();
-//            deleteDatas.getText().clear();
-//            updateList();
-//        }catch (Exception e){
-//            Toast.makeText(MainActivity.this,"No such entry..",Toast.LENGTH_SHORT).show();
-//            deleteDatas.clearFocus();
-//            deleteDatas.getText().clear();
-//            updateList();
-//        }
-        mDb.delete(ContractClass.nameClass.TABLENAME,null,null);
-        updateList();
+        String nameForDeletion=deleteDatas.getText().toString().trim().toLowerCase();
+        try {
+            mDb.delete(ContractClass.nameClass.TABLENAME, ContractClass.nameClass.COLUMN_PERSON_NAME + " = '" + nameForDeletion +"'", null);
+            Toast.makeText(MainActivity.this, "Deletion performed..", Toast.LENGTH_SHORT).show();
+            deleteDatas.clearFocus();
+            deleteDatas.getText().clear();
+            updateList();
+        }catch (Exception e){
+            Toast.makeText(MainActivity.this,"No such entry..",Toast.LENGTH_SHORT).show();
+            deleteDatas.clearFocus();
+            deleteDatas.getText().clear();
+            updateList();
+        }
+//        to delete all entries in the table
+//        mDb.delete(ContractClass.nameClass.TABLENAME,null,null);
+//        updateList();
     }
 
     public void updateList(){
