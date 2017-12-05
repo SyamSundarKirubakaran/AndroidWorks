@@ -3,5 +3,5 @@
     <string name="title_activity_detailed">Movie Name</string>
     <string name="action_settings">Settings</string>
     <!-- TODO! Add your API key here! -->
-    <string name="API_key"></string>
+    <string name="API_key">47ea50d7ece7e74f25725d5937da4586</string>
 </resources>
