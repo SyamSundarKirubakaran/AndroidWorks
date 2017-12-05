@@ -1,8 +1,11 @@
 package com.bugscript.internetinteract;
 
 import android.app.Activity;
+import android.app.LoaderManager;
 import android.content.Intent;
+import android.content.Loader;
 import android.os.AsyncTask;
+import android.support.v4.content.AsyncTaskLoader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,13 +28,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private EditText getQueryString;
     private TextView finalEditInTextView;
     private String userName;
     private URL completeURL;
     private ListView finalList;
+    private static final int GITHUB_SEARCH_LOADER=9;
+    private String SEARCH_QUERY_URL_EXTRA;
 
 
     private ArrayList<Github> appendingGithubFollowers;
@@ -55,9 +60,8 @@ public class MainActivity extends AppCompatActivity {
         completeURL=NetworkUtils.cookingTheUrl(userName);
 
         new GithubQueryTask().execute(completeURL);
-
-
     }
+
 
 
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
