@@ -5,11 +5,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+    
+    private static final String ON_CREATE = "onCreate";
+    private static final String ON_START = "onStart";
+    private static final String ON_RESUME = "onResume";
+    private static final String ON_PAUSE = "onPause";
+    private static final String ON_STOP = "onStop";
+    private static final String ON_RESTART = "onRestart";
+    private static final String ON_DESTROY = "onDestroy";
+    private static final String ON_SAVE_INSTANCE_STATE = "onSaveInstanceState";
 
     EditText dataGot;
     TextView dataSavedInTextView;
@@ -22,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         String lifecycle_transitions=dataSavedInTextView.getText().toString().trim();
         outState.putString(LIFE_CYCLE_CALLBACK_KEY,lifecycle_transitions);
-
+        displayLog(ON_SAVE_INSTANCE_STATE);
     }
 
     @Override
@@ -67,6 +80,59 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        displayLog(ON_CREATE);
 
     }
+
+    private void displayLog(String lifecycleEvent) {
+        Log.d(TAG, "Lifecycle Event: " + lifecycleEvent);
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        displayLog(ON_START);
+    }
+
+    
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        displayLog(ON_RESUME);
+    }
+
+    
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        displayLog(ON_PAUSE);
+    }
+
+    
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        displayLog(ON_STOP);
+    }
+
+   
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        displayLog(ON_RESTART);
+    }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        displayLog(ON_DESTROY);
+    }
+
 }

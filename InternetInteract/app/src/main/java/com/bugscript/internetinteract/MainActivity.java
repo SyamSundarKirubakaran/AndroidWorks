@@ -1,13 +1,8 @@
 package com.bugscript.internetinteract;
 
-import android.app.Activity;
-import android.app.LoaderManager;
-import android.content.Intent;
-import android.content.Loader;
 import android.os.AsyncTask;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,7 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     private EditText getQueryString;
     private TextView finalEditInTextView;
@@ -61,6 +56,7 @@ public class MainActivity extends AppCompatActivity{
 
         new GithubQueryTask().execute(completeURL);
     }
+
 
 
 

@@ -13,6 +13,8 @@ Repository that showcases Android Best Practices with Intermediate Project Creat
 -Nano Degree Submission - Popular Movies Stage I (sub-repo name: [PosterGrid](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid))
 <br /><br />
 **#5 [SQLite Light](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/SQLiteLight)**
+<br /><br />
+**#6 [Lifecycle Lemma](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/LifecycleLemma)**
 
 ## 1. Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
@@ -123,3 +125,17 @@ Mainly focuses on Data Presistence.
 <p align="center">
   <img src="asserts/gifs/sqlite_light.gif">
 </p>
+
+## 6.Lifecycle Lemma:
+An app that illustrates the working of android lifecycle and which preserves data between screen orientation changes using onSavedInstanceStates and callbacks.<br />
+
+**You'll Learn:**
+* Short term Data presistence
+* Lifecycle callbacks
+* onSavedInstanceState method to preserve data between orientation shift that leads to data teardowns.<br />
+
+**Show case:**<br />
+<p align="center">
+  <img src="asserts/gifs/Lifecycle_lemma.gif">
+</p>
+
