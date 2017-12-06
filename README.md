@@ -126,7 +126,7 @@ Mainly focuses on Data Presistence.
   <img src="asserts/gifs/sqlite_light.gif">
 </p>
 
-## 6.Lifecycle Lemma:
+## 6. Lifecycle Lemma:
 An app that illustrates the working of android lifecycle and which preserves data between screen orientation changes using onSavedInstanceStates and callbacks.<br />
 
 **You'll Learn:**

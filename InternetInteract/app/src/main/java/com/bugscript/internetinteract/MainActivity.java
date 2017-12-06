@@ -1,5 +1,9 @@
 package com.bugscript.internetinteract;
 
+import android.content.res.Configuration;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,10 +11,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bugscript.internetinteract.utilities.NetworkUtils;
@@ -20,18 +22,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText getQueryString;
-    private TextView finalEditInTextView;
     private String userName;
     private URL completeURL;
     private ListView finalList;
-    private static final int GITHUB_SEARCH_LOADER=9;
-    private String SEARCH_QUERY_URL_EXTRA;
+    private static final String SEARCH_QUERY_URL_EXTRA = "query";
+    private static final int GITHUB_SEARCH_LOADER = 22;
 
 
     private ArrayList<Github> appendingGithubFollowers;
@@ -40,24 +42,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getQueryString=(EditText) findViewById(R.id.editText);
-        finalEditInTextView=(TextView) findViewById(R.id.textView2);
-        finalList =(ListView) findViewById(R.id.listview);
+        getQueryString= findViewById(R.id.editText);
+        finalList = findViewById(R.id.listview);
     }
 
 
 
     private void cookingQuery(){
         userName=getQueryString.getText().toString().toLowerCase().trim();
-
-        getQueryString.setText("");
-
         completeURL=NetworkUtils.cookingTheUrl(userName);
-
+        Bundle queryBundle = new Bundle();
+        queryBundle.putString(SEARCH_QUERY_URL_EXTRA, completeURL.toString());
         new GithubQueryTask().execute(completeURL);
     }
-
-
 
 
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
@@ -98,23 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String githubSearchResults) {
-
             GithubAdapter adapter = new GithubAdapter(MainActivity.this,appendingGithubFollowers);
             finalList.setAdapter(adapter);
-
-            finalList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-
-                }
-
-            });
-
-
-
             finalList.setVisibility(View.VISIBLE);
-
         }
     }
 
