@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:title="Change Title"
+        android:key="change_title"
+        android:defaultValue="Doctor Strange" />
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="show_caps"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     tools:context="com.bugscript.preferencepreserved.MainActivity">
 
 
@@ -14,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Your Preference"
+        android:text="Doctor Strange"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textSize="20dp"
         android:textColor="@color/colorAccent"/>
 

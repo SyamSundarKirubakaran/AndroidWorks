@@ -9,12 +9,14 @@ Repository that showcases Android Best Practices with Intermediate Project Creat
 **#2 [Pick Picasso](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/pickpicasso)**<br /><br />
 **#3 [Move Movies](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/MoveMovie)**
 <br /><br />
-**#4 [Movie Feast](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid)** 
--Nano Degree Submission - Popular Movies Stage I (sub-repo name: [PosterGrid](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid))
+**#4 [Movie Feast](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid) @Milestone_Project #1** 
+-Nano Degree Submission - Popular Movies Stage I (sub-repo name: [PosterGrid](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid)) 
 <br /><br />
 **#5 [SQLite Light](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/SQLiteLight)**
 <br /><br />
 **#6 [Lifecycle Lemma](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/LifecycleLemma)**
+<br /><br />
+**#6 [Preferences Preserved](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PreferencePreserved)**
 
 ## 1. Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
@@ -137,5 +139,19 @@ An app that illustrates the working of android lifecycle and which preserves dat
 **Show case:**<br />
 <p align="center">
   <img src="asserts/gifs/Lifecycle_lemma.gif">
+</p>
+
+## 6. Lifecycle Lemma:
+An app that illustrates how to manage users Preferences for you app and also helps to store users preference so that those preferences remainds default even when the app is relaunched.<br />
+
+**You'll Learn:**
+* Short term Data presistence
+* Setting up Settings Activity
+* Check box Preferences, List Preferences and Edit text Preferences.
+* Handling and Managing user's preferences so that UI can be changed accordingly.<br />
+
+**Show case:**<br />
+<p align="center">
+  <img src="asserts/gifs/prefs.gif">
 </p>
 

@@ -2,7 +2,9 @@
     <string name="app_name">Preference Preserved</string>
     <string name="pref_size_label_small">Small</string>
     <string name="pref_size_label_large">Large</string>
-    <string name="pref_size_value_small" translatable="false">https://image.tmdb.org/t/p/w500//ApYhuwBWzl29Oxe9JJsgL7qILbD.jpg</string>
-    <string name="pref_size_value_large" translatable="false">https://image.tmdb.org/t/p/w780//ApYhuwBWzl29Oxe9JJsgL7qILbD.jpg</string>
+    <string name="pref_size_value_small" translatable="false">https://image.tmdb.org/t/p/w500/4PiiNGXj1KENTmCBHeN6Mskj2Fq.jpg</string>
+    <string name="pref_size_value_large" translatable="false">https://image.tmdb.org/t/p/w780/4PiiNGXj1KENTmCBHeN6Mskj2Fq.jpg</string>
     <string name="list_key">image_size</string>
+    <string name="edit_text_key" translatable="false">change_title</string>
+    <string name="edit_text_title">Change Title</string>
 </resources>

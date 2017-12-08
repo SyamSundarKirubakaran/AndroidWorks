@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     private void getDefaultSetup(){
-
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
         preferencesLabelTextView.setAllCaps(sharedPreferences.getBoolean("show_caps",true));
         loadImageFromPreferences(sharedPreferences);
@@ -40,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Picasso.with(this)
                 .load(sharedPreferences.getString(getString(R.string.list_key),getString(R.string.pref_size_value_large)))
                 .into(preferedImageInImageView);
+    }
+
+    private void loadTextFromSharedPreferences(SharedPreferences sharedPreferences){
+        String currentpreference=sharedPreferences.getString(getString(R.string.edit_text_key),"Nothing");
+        preferencesLabelTextView.setText(sharedPreferences.getString(getString(R.string.edit_text_key),currentpreference));
     }
 
     @Override
@@ -68,13 +72,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         if(key.equals(getString(R.string.list_key))){
             loadImageFromPreferences(sharedPreferences);
         }
+        if(key.equals(getString(R.string.edit_text_key))){
+            loadTextFromSharedPreferences(sharedPreferences);
+        }
     }
 
     @Override
     protected void onDestroy() {
         PreferenceManager.getDefaultSharedPreferences(this)
                 .unregisterOnSharedPreferenceChangeListener(this);
-
         super.onDestroy();
     }
 }
