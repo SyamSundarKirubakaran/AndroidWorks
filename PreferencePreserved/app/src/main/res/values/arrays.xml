@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pref_size_label_array">
+        <item>@string/pref_size_label_small</item>
+        <item>@string/pref_size_label_large</item>
+    </array>
+    <array name="pref_size_value_array">
+        <item>@string/pref_size_value_small</item>
+        <item>@string/pref_size_value_large</item>
+    </array>
+</resources>

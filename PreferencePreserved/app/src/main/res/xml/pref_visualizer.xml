@@ -6,4 +6,11 @@
         android:summaryOff="Not in Caps"
         android:summaryOn="All in Caps"
         android:title="Upper Case" />
+    <ListPreference
+        android:defaultValue="https://image.tmdb.org/t/p/w780//ApYhuwBWzl29Oxe9JJsgL7qILbD.jpg"
+        android:key="@string/list_key"
+        android:title="Image Size"
+        android:entries="@array/pref_size_label_array"
+        android:entryValues="@array/pref_size_value_array" />
+
 </PreferenceScreen>
