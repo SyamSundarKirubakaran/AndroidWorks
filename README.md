@@ -16,7 +16,7 @@ Repository that showcases Android Best Practices with Intermediate Project Creat
 <br /><br />
 **#6 [Lifecycle Lemma](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/LifecycleLemma)**
 <br /><br />
-**#6 [Preferences Preserved](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PreferencePreserved)**
+**#7 [Preferences Preserved](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PreferencePreserved)**
 
 ## 1. Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
@@ -141,7 +141,7 @@ An app that illustrates the working of android lifecycle and which preserves dat
   <img src="asserts/gifs/Lifecycle_lemma.gif">
 </p>
 
-## 6. Lifecycle Lemma:
+## 7. Preferences Preserved:
 An app that illustrates how to manage users Preferences for you app and also helps to store users preference so that those preferences remainds default even when the app is relaunched.<br />
 
 **You'll Learn:**
