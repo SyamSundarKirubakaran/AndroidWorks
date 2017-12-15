@@ -10,7 +10,8 @@ Repository that showcases Android Best Practices with Intermediate Project Creat
 **#3 [Move Movies](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/MoveMovie)**
 <br /><br />
 **#4 [Movie Feast](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid) @Milestone_Project #1** 
--Nano Degree Submission - Popular Movies Stage I (sub-repo name: [PosterGrid](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid)) 
+-Nano Degree Submission - Popular Movies Stage I <br />
+(sub-repo name: [PosterGrid](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PosterGrid)) 
 <br /><br />
 **#5 [SQLite Light](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/SQLiteLight)**
 <br /><br />
