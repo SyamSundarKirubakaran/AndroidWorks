@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -72,6 +75,29 @@ public class DetailedActivity extends AppCompatActivity {
                 .load("https://image.tmdb.org/t/p/w500"+MainActivity.poster[intGotPosition])
                 .into(imageViewInDetailsPoster);
         imageViewInDetailsPoster.setVisibility(View.VISIBLE);
+
+        FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.fab);
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "This will play the Trailer for the selected Movie..", Snackbar.LENGTH_LONG).show();
+            }
+        });
+
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab1);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Add to Favorite List ", Snackbar.LENGTH_LONG)
+                        .setAction("Yes", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(DetailedActivity.this,"Movie added to Favorites..",Toast.LENGTH_LONG).show();
+                            }
+                        }).show();
+            }
+        });
+
     }
 
     public void picassoLoader(Context context, ImageView imageView, String url){

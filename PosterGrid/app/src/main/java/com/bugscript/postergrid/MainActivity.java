@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public static String[] votes;
     public static String[] poster;
     public static String[] backdrop;
+    public static String[] id;
     private String MOVIE_URL;
     private String API_KEY;
     private URL url;
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     summary=new String[JA.length()];
                     poster=new String[JA.length()];
                     backdrop=new String[JA.length()];
+                    id=new String[JA.length()];
                     for(int i=0;i<=JA.length();i++){
                         JSONObject Jinside=JA.getJSONObject(i);
                         movies[i]=Jinside.getString("title");
@@ -115,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                         summary[i]=Jinside.getString("overview");
                         poster[i]=Jinside.getString("poster_path");
                         backdrop[i]=Jinside.getString("backdrop_path");
+                        id[i]=Jinside.getString("id");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
