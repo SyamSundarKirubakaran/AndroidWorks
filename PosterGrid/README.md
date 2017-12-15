@@ -1,4 +1,4 @@
-# Popular-Movies-Stage-I
+# Popular-Movies-Stage-II
 
 ![Android](https://img.shields.io/badge/Platform-Android-green.svg)   ![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 <br />
@@ -6,12 +6,12 @@ Submission for Android NanoDegree Project
 
 ## Contents
 **#1 [Movie Feast](https://github.com/SyamSundarKirubakaran/Popular-Movies-Stage-I)** 
-- Nano Degree Submission - Popular Movies Stage I 
+- Nano Degree Submission - Popular Movies Stage II
 
 ## Preliminary works
 - Check out my [AndroidWorks](https://github.com/SyamSundarKirubakaran/AndroidWorks) Repository to find out how I learnt step by step to accomplish this result.
 
-## 1. Movie Feast:
+## 1. Movie Feast - II:
 An app that uses the [Movies.db API](https://www.themoviedb.org/?language=en) to find the popular movies and Top rated movies in realtime and inflate the activities with the data of those movies accordingly. <br />
 
 **Things I've Learnt:**
@@ -33,7 +33,3 @@ Get your API key and place it in the strings.xml file in the resource directory.
 ``` xml
 <string name="API_Key">Your API Key</string>
 ```
-**Show case:**<br />
-<p align="center">
-  <img src="assert/movie_feast.gif">
-</p>
