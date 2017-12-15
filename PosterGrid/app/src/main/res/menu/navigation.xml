@@ -11,4 +11,19 @@
         android:icon="@drawable/ic_whatshot_black_24dp"
         android:title="Top Rated" />
 
+    <item
+        android:id="@+id/navigation_now_playing"
+        android:icon="@drawable/ic_confirmation_number_black_24dp"
+        android:title="Now Playing"/>
+
+    <item
+        android:id="@+id/navigation_up_coming"
+        android:icon="@drawable/ic_golf_course_black_24dp"
+        android:title="Up Coming"/>
+
+    <item
+        android:id="@+id/navigation_favorite"
+        android:icon="@drawable/ic_favorite_black_24dp"
+        android:title="Favorite"/>
+
 </menu>

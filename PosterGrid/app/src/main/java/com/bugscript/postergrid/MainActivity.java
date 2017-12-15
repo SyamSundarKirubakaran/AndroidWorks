@@ -52,6 +52,17 @@ public class MainActivity extends AppCompatActivity {
                     MOVIE_URL="https://api.themoviedb.org/3/movie/top_rated?api_key="+getResources().getString(R.string.API_key);
                     doFunctionGrid();
                     return true;
+                case R.id.navigation_now_playing:
+                    MOVIE_URL="https://api.themoviedb.org/3/movie/now_playing?api_key="+getResources().getString(R.string.API_key);
+                    doFunctionGrid();
+                    return true;
+                case R.id.navigation_up_coming:
+                    MOVIE_URL="https://api.themoviedb.org/3/movie/upcoming?api_key="+getResources().getString(R.string.API_key);
+                    doFunctionGrid();
+                    return true;
+                case R.id.navigation_favorite:
+                    Toast.makeText(MainActivity.this,"Yet to be implemented..",Toast.LENGTH_LONG).show();
+                    return true;
             }
             return false;
         }
