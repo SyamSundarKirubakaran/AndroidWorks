@@ -21,9 +21,4 @@
         android:icon="@drawable/ic_golf_course_black_24dp"
         android:title="Up Coming"/>
 
-    <item
-        android:id="@+id/navigation_favorite"
-        android:icon="@drawable/ic_favorite_black_24dp"
-        android:title="Favorites"/>
-
 </menu>

@@ -1,7 +1,9 @@
 package com.bugscript.postergrid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,20 +35,15 @@ public class DetailedActivity extends AppCompatActivity {
     private ImageView imageViewInDetailsPoster;
     public int intGotPosition;
     private String REVIEW_URL;
+    private String VIDEO_URL;
     private URL url_for_review;
+    private URL url_for_video;
     private int totalLenght;
     public static String[] authors=new String[100];
     public static String[] content=new String[100];
+    public static String key=null;
     private int flag=0;
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id=item.getItemId();
-        if(id==android.R.id.home){
-            NavUtils.navigateUpFromSameTask(this);
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +95,13 @@ public class DetailedActivity extends AppCompatActivity {
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "This will play the Trailer for the selected Movie..", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, "Play in YouTube", Snackbar.LENGTH_LONG)
+                        .setAction("Yes", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v="+key)));
+                            }
+                        }).show();
             }
         });
 
@@ -105,7 +109,7 @@ public class DetailedActivity extends AppCompatActivity {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Favorites list Modified", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Favorites list Altered", Snackbar.LENGTH_LONG)
                         .setAction("View", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -116,6 +120,7 @@ public class DetailedActivity extends AppCompatActivity {
         });
 
         REVIEW_URL="https://api.themoviedb.org/3/movie/"+MainActivity.id[intGotPosition]+"/reviews?api_key="+getResources().getString(R.string.API_key);
+        VIDEO_URL="http://api.themoviedb.org/3/movie/"+MainActivity.id[intGotPosition]+"/videos?api_key="+getResources().getString(R.string.API_key);
         getReviews();
 
     }
@@ -131,10 +136,11 @@ public class DetailedActivity extends AppCompatActivity {
     public void getReviews(){
         try{
             url_for_review=new URL(REVIEW_URL);
+            url_for_video=new URL(VIDEO_URL);
         }catch (Exception e){
             Toast.makeText(DetailedActivity.this,"Error while building URL..",Toast.LENGTH_LONG).show();
         }
-        new ReceiveReviews().execute(url_for_review);
+        new ReceiveReviews().execute(url_for_review,url_for_video);
     }
 
     public class ReceiveReviews extends AsyncTask<URL, Void, String> {
@@ -142,9 +148,12 @@ public class DetailedActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(URL... urls) {
             URL gotUrl=urls[0];
+            URL viUrl=urls[1];
             String review=null;
+            String video=null;
             try{
                 review= NetworkUtils.getResponseFromHttpUrl(gotUrl);
+                video= NetworkUtils.getResponseFromHttpUrl(viUrl);
                 try{
                     JSONObject JO=new JSONObject(review);
                     JSONArray JA= JO.getJSONArray("results");
@@ -160,8 +169,18 @@ public class DetailedActivity extends AppCompatActivity {
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
+
+                try{
+                    JSONObject JO=new JSONObject(video);
+                    JSONArray JA= JO.getJSONArray("results");
+                    key=JA.getJSONObject(0).getString("key");
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+
             }catch(Exception e) {
             }
+
             return review;
         }
 
@@ -179,5 +198,30 @@ public class DetailedActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_detailed, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        if(id==android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+        }else if(id==R.id.action_settings){
+            Intent i=new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            String shareBody=MainActivity.summary[intGotPosition];
+            String shareSub=MainActivity.movies[intGotPosition];
+            i.putExtra(Intent.EXTRA_SUBJECT,shareSub);
+            i.putExtra(Intent.EXTRA_TEXT,shareBody);
+            startActivity(Intent.createChooser(i,"Share with:"));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

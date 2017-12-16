@@ -51,7 +51,7 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_play_arrow_black_24dp"
+        app:srcCompat="@drawable/ic_play_arrow_white_24px"
         tools:ignore="VectorDrawableCompat" />
 
     <android.support.design.widget.FloatingActionButton
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_favorite_black_24dp"
+        app:srcCompat="@drawable/ic_favorite_white_24px"
         tools:ignore="VectorDrawableCompat" />
 
 
