@@ -182,20 +182,3 @@ An app that uses the [Movies.db API](https://www.themoviedb.org/?language=en) to
 * Offline Storage of favorite movies
 * Bug fix<br />
 
-**Show case:**<br />
-<img src="assert/popular.png" height=480 width =270 />
-<img src="assert/top_rated.png" height=480 width =270 />
-<img src="assert/now_playing.png" height=480 width =270 />
-<img src="assert/up_coming.png" height=480 width =270 />
-<img src="assert/overview.png" height=480 width =270 />
-<img src="assert/pre_video.png" height=480 width =270 />
-<img src="assert/youtube.png" height=480 width =270 />
-<img src="assert/share.png" height=480 width =270 />
-<img src="assert/empty_fav.png" height=480 width =270 />
-<img src="assert/add_fav.png" height=480 width =270 />
-<img src="assert/fav.png" height=480 width =270 />
-<img src="assert/rem_fav.png" height=480 width =270 /><br />
-**In absence of Network:**<br />
-<img src="assert/no_network.png" height=480 width =270 />
-<img src="assert/fav_full.png" height=480 width =270 />
-
