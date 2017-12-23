@@ -18,6 +18,11 @@ Repository that showcases Android Best Practices with Intermediate Project Creat
 **#6 [Lifecycle Lemma](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/LifecycleLemma)**
 <br /><br />
 **#7 [Preferences Preserved](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/master/PreferencePreserved)**
+<br /><br />
+**#8 [Movie Feast_2](https://github.com/SyamSundarKirubakaran/Popular-Movies-Stage-II)
+@Milestone_Project #2**
+-Nano Degree Submission - Popular Movies Stage I <br />
+(In [movies2](https://github.com/SyamSundarKirubakaran/AndroidWorks/tree/movies2) branch)
 
 ## 1. Internet Interact:
 An app used to find the followers in Github by supplying his/her accounts user name.(**NOTE:** The app can only show 30 followers at a time since the **GitHub API** JSON Objects are restricted to 30 for an URL). <br />
@@ -155,4 +160,42 @@ An app that illustrates how to manage users Preferences for you app and also hel
 <p align="center">
   <img src="asserts/gifs/prefs.gif">
 </p>
+
+## 8. Movie Feast 2:
+An app that uses the [Movies.db API](https://www.themoviedb.org/?language=en) to find the popular movies,Top rated,Now playing and Up coming movies in realtime and inflate the activities with the data of those movies accordingly. <br />
+
+**You'll Learn:**
+* Working with [Movies API](https://www.themoviedb.org/?language=en)
+* [Networking in Android](https://developer.android.com/training/basics/network-ops/connecting.html)
+* JSON parsing
+* Scrolling view
+* Picasso
+* Bottom Navigation Bar
+* Grid View
+* Play videos in YouTube using implicit intents
+* Favorite movies tracking
+* Content Providers
+* SQLite Databases
+* Working with URIs
+* Using share Intent
+* Handle Requests in absence of network
+* Offline Storage of favorite movies
+* Bug fix<br />
+
+**Show case:**<br />
+<img src="assert/popular.png" height=480 width =270 />
+<img src="assert/top_rated.png" height=480 width =270 />
+<img src="assert/now_playing.png" height=480 width =270 />
+<img src="assert/up_coming.png" height=480 width =270 />
+<img src="assert/overview.png" height=480 width =270 />
+<img src="assert/pre_video.png" height=480 width =270 />
+<img src="assert/youtube.png" height=480 width =270 />
+<img src="assert/share.png" height=480 width =270 />
+<img src="assert/empty_fav.png" height=480 width =270 />
+<img src="assert/add_fav.png" height=480 width =270 />
+<img src="assert/fav.png" height=480 width =270 />
+<img src="assert/rem_fav.png" height=480 width =270 /><br />
+**In absence of Network:**<br />
+<img src="assert/no_network.png" height=480 width =270 />
+<img src="assert/fav_full.png" height=480 width =270 />
 
