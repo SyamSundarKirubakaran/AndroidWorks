@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context="com.bugscript.postergrid.FavoriteActivity">
+
+    <GridView
+        android:id="@+id/fav_gridview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:horizontalSpacing="1dp"
+        android:numColumns="2"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"/>
+
+</android.support.constraint.ConstraintLayout>

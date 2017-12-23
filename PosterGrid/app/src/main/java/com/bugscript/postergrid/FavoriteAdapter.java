@@ -10,20 +10,20 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 /**
- * Created by syamsundark on 02/12/17.
+ * Created by syamsundark on 16/12/17.
  */
 
-public class PosterAdapter extends BaseAdapter {
+public class FavoriteAdapter extends BaseAdapter {
     private Context mContext;
 
 
-    public PosterAdapter(Context c) {
+    public FavoriteAdapter(Context c) {
         mContext = c;
     }
 
 
     public int getCount() {
-        return (MainActivity.poster!=null)?MainActivity.poster.length:0;
+        return MoviesDB.fav_poster.length;
     }
 
 
@@ -47,7 +47,7 @@ public class PosterAdapter extends BaseAdapter {
         }
 
         Picasso.with(mContext)
-                .load("https://image.tmdb.org/t/p/w500"+MainActivity.poster[position])
+                .load("https://image.tmdb.org/t/p/w500"+MoviesDB.fav_poster[position])
                 .into(imageView);
 
         return imageView;
