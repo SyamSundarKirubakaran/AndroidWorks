@@ -5,14 +5,14 @@
 Submission for Android NanoDegree Project
 
 ## Contents
-**#1 [Movie Feast](https://github.com/SyamSundarKirubakaran/Popular-Movies-Stage-I)** 
+**#1 [Movie Feast - II](https://github.com/SyamSundarKirubakaran/Popular-Movies-Stage-II)** 
 - Nano Degree Submission - Popular Movies Stage II
 
 ## Preliminary works
 - Check out my [AndroidWorks](https://github.com/SyamSundarKirubakaran/AndroidWorks) Repository to find out how I learnt step by step to accomplish this result.
 
-## 1. Movie Feast - II:
-An app that uses the [Movies.db API](https://www.themoviedb.org/?language=en) to find the popular movies and Top rated movies in realtime and inflate the activities with the data of those movies accordingly. <br />
+## Movie Feast - II:
+An app that uses the [Movies.db API](https://www.themoviedb.org/?language=en) to find the popular movies,Top rated,Now playing and Up coming movies in realtime and inflate the activities with the data of those movies accordingly. <br />
 
 **Things I've Learnt:**
 * Working with [Movies API](https://www.themoviedb.org/?language=en)
@@ -20,7 +20,17 @@ An app that uses the [Movies.db API](https://www.themoviedb.org/?language=en) to
 * JSON parsing
 * Scrolling view
 * Picasso
-* Bottom Tabbed Activity<br />
+* Bottom Navigation Bar
+* Grid View
+* Play videos in YouTube using implicit intents
+* Favorite movies tracking
+* Content Providers
+* SQLite Databases
+* Working with URIs
+* Using share Intent
+* Handle Requests in absence of network
+* Offline Storage of favorite movies
+* Bug fix<br />
 
 **Popular movies in the form of JSON:** <br />
 <br />
@@ -33,3 +43,21 @@ Get your API key and place it in the strings.xml file in the resource directory.
 ``` xml
 <string name="API_Key">Your API Key</string>
 ```
+**Show case:**<br />
+<img src="assert/popular.png" height=480 width =270 />
+<img src="assert/top_rated.png" height=480 width =270 />
+<img src="assert/now_playing.png" height=480 width =270 />
+<img src="assert/up_coming.png" height=480 width =270 />
+<img src="assert/overview.png" height=480 width =270 />
+<img src="assert/pre_video.png" height=480 width =270 />
+<img src="assert/youtube.png" height=480 width =270 />
+<img src="assert/share.png" height=480 width =270 />
+<img src="assert/empty_fav.png" height=480 width =270 />
+<img src="assert/add_fav.png" height=480 width =270 />
+<img src="assert/fav.png" height=480 width =270 />
+<img src="assert/rem_fav.png" height=480 width =270 /><br />
+**In absence of Network:**<br />
+<img src="assert/no_network.png" height=480 width =270 />
+<img src="assert/fav_full.png" height=480 width =270 />
+
+

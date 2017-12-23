@@ -3,6 +3,7 @@
     package="com.bugscript.postergrid">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:launchMode="singleTop"
-            android:label="Movie Feast">
+        <activity
+            android:name=".MainActivity"
+            android:label="Movie Feast"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,10 +25,25 @@
         <activity
             android:name=".DetailedActivity"
             android:label="@string/title_activity_detailed"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        </activity>
+        <provider
+            android:name=".data.MovieProvider"
+            android:authorities="com.bugscript.postergrid"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".FavoriteActivity"
+            android:label="Favorites"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".FavoriteDetails"
+            android:label="Favorites"
+            android:parentActivityName=".FavoriteActivity" />
+        <activity android:name=".Videos.VideoActivity"
+            android:label="Movie Videos"></activity>
     </application>
 
 </manifest>

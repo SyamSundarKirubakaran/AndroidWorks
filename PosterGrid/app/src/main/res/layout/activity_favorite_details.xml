@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.bugscript.postergrid.DetailedActivity"
-    tools:showIn="@layout/activity_detailed"
-    android:id="@+id/nested">
+    tools:context="com.bugscript.postergrid.FavoriteDetails">
 
-    <RelativeLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
-        android:id="@+id/detailScrollViewContainer">
+        android:paddingBottom="16dp">
 
 
         <TextView
@@ -105,37 +104,16 @@
             android:textColor="@color/colorGrey"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/movieSummaryValue"
-            android:layout_below="@+id/movieSummaryValue"
-            android:layout_marginTop="11dp"
-            android:text="Reviews:"
-            android:textColor="@color/colorAccent"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/movieReviewValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/posterLabel"
-            android:layout_below="@+id/textView"
-            android:layout_marginTop="12dp"
-            android:text="Fetching Movie Reviews.."
-            android:textColor="@color/colorGrey"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/posterLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView"
-            android:layout_below="@+id/movieReviewValue"
-            android:text="Poster:"
-            android:textColor="@color/colorAccent"
-            android:textSize="16sp" />
+            <TextView
+                android:id="@+id/posterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/movieSummaryValue"
+                android:layout_below="@+id/movieSummaryValue"
+                android:layout_marginTop="15dp"
+                android:text="Poster:"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp" />
 
 
         <RelativeLayout
@@ -164,10 +142,9 @@
                 android:visibility="invisible" />
 
         </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
 
 
-
-
-    </RelativeLayout>
-
-</android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

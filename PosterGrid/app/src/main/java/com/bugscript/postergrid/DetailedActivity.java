@@ -1,25 +1,35 @@
 package com.bugscript.postergrid;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.NestedScrollingParent;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bugscript.postergrid.Utilities.NetworkUtils;
+import com.bugscript.postergrid.Videos.VideoActivity;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -41,9 +51,37 @@ public class DetailedActivity extends AppCompatActivity {
     private int totalLenght;
     public static String[] authors=new String[100];
     public static String[] content=new String[100];
-    public static String key=null;
+    public static String[] keys;
+    public static String[] video_name;
     private int flag=0;
+    public static MoviesDB mdb = new MoviesDB();
+    public static int scrollX = 0;
+    public static int scrollY = -1;
+    public static NestedScrollView nestedScrollView;
+    public static AppBarLayout appBarLayout;
 
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putIntArray("SCROLL_POSITION",
+                new int[]{ nestedScrollView.getScrollX(), nestedScrollView.getScrollY()});
+    }
+
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(scrollX==0 && scrollY==0){
+            appBarLayout.setExpanded(true);
+        }else {
+            appBarLayout.setExpanded(false);
+        }
+        final int[] position = savedInstanceState.getIntArray("SCROLL_POSITION");
+        if(position != null)
+            nestedScrollView.post(new Runnable() {
+                public void run() {
+                    nestedScrollView.scrollTo(position[0], position[1]);
+                }
+            });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +96,10 @@ public class DetailedActivity extends AppCompatActivity {
         movieSummary= findViewById(R.id.movieSummaryValue);
         imageViewInDetailsPoster= findViewById(R.id.imageViewPosterDetails);
         movieReview= findViewById(R.id.movieReviewValue);
-
+        final FloatingActionButton fab2 = findViewById(R.id.fab1);
+        final FloatingActionButton fab1 = findViewById(R.id.fab);
+        nestedScrollView=findViewById(R.id.nested);
+        appBarLayout=findViewById(R.id.app_bar);
 
         String gotPosition=getIntent().getStringExtra("position");
         intGotPosition=Integer.parseInt(gotPosition);
@@ -77,6 +118,14 @@ public class DetailedActivity extends AppCompatActivity {
 
 
 
+        int idIntValue=Integer.parseInt(MainActivity.id[intGotPosition]);
+        if(mdb.isMovieFavorited(MainActivity.contentResolver, idIntValue)){
+            fab2.setImageDrawable(ContextCompat.getDrawable(DetailedActivity.this,R.drawable.ic_favorite_white_24px));
+        }else{
+            fab2.setImageDrawable(ContextCompat.getDrawable(DetailedActivity.this,R.drawable.ic_favorite_border_white_24px));
+        }
+
+
         ImageView toolbarImage =  findViewById(R.id.image_id);
 
         String url = "https://image.tmdb.org/t/p/w1280"+MainActivity.backdrop[intGotPosition];
@@ -91,31 +140,30 @@ public class DetailedActivity extends AppCompatActivity {
                 .into(imageViewInDetailsPoster);
         imageViewInDetailsPoster.setVisibility(View.VISIBLE);
 
-        FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.fab);
+
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Play in YouTube", Snackbar.LENGTH_LONG)
-                        .setAction("Yes", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v="+key)));
-                            }
-                        }).show();
+                Intent i=new Intent(DetailedActivity.this, VideoActivity.class);
+                startActivity(i);
             }
         });
 
-        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab1);
+
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Favorites list Altered", Snackbar.LENGTH_LONG)
-                        .setAction("View", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Toast.makeText(DetailedActivity.this,"Movie added to Favorites..",Toast.LENGTH_LONG).show();
-                            }
-                        }).show();
+                int idIntValue=Integer.parseInt(MainActivity.id[intGotPosition]);
+                if(mdb.isMovieFavorited(MainActivity.contentResolver, idIntValue)){
+                    mdb.removeMovie(MainActivity.contentResolver, idIntValue);
+                    fab2.setImageDrawable(ContextCompat.getDrawable(DetailedActivity.this,R.drawable.ic_favorite_border_white_24px));
+                    Snackbar.make(view, "Removed from Favorites", Snackbar.LENGTH_SHORT).show();
+                }else{
+                    mdb.addMovie(MainActivity.contentResolver, intGotPosition);
+                    fab2.setImageDrawable(ContextCompat.getDrawable(DetailedActivity.this,R.drawable.ic_favorite_white_24px));
+                    Snackbar.make(view, "Added to Favorites", Snackbar.LENGTH_SHORT).show();
+                }
+                mdb.getFavoriteMovies(MainActivity.contentResolver);
             }
         });
 
@@ -173,12 +221,18 @@ public class DetailedActivity extends AppCompatActivity {
                 try{
                     JSONObject JO=new JSONObject(video);
                     JSONArray JA= JO.getJSONArray("results");
-                    key=JA.getJSONObject(0).getString("key");
+                    keys=new String[JA.length()];
+                    video_name=new String[JA.length()];
+                    for (int i=0;i<=JA.length();i++){
+                        keys[i]=JA.getJSONObject(i).getString("key");
+                        video_name[i]=JA.getJSONObject(i).getString("name");
+                    }
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
 
             }catch(Exception e) {
+
             }
 
             return review;
@@ -192,11 +246,29 @@ public class DetailedActivity extends AppCompatActivity {
             }else {
                 String temp="";
                 for(int i=0;i<totalLenght;i++){
-                    temp=temp+"Author: "+authors[i]+"\nReview: "+content[i]+"\n"+"-------------------------------"+"\n";
+                    temp=temp+"\t\tAuthor: "+authors[i]+"\n\t\tReview: "+content[i]+"\n"+"-------------------------------"+"\n";
                 }
                 movieReview.setText(temp+"");
             }
         }
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        scrollX = nestedScrollView.getScrollX();
+        scrollY = nestedScrollView.getScrollY();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        nestedScrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                nestedScrollView.scrollTo(scrollX, scrollY);
+            }
+        });
     }
 
     @Override
@@ -222,6 +294,5 @@ public class DetailedActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 }
